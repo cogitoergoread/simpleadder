@@ -1,0 +1,91 @@
+info:
+  title: Simple Adder Service
+  version: 1.0.0
+  description: A simple web service that adds two numbers and returns the result.
+servers:
+  - url: http://localhost:5000
+paths:
+  /add:
+    post:
+      summary: Add two numbers
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                number1:
+                  type: number
+                  description: The first number to add
+                number2:
+                  type: number
+                  description: The second number to add
+              required:
+                - number1
+                - number2
+            examples:
+              zeroPlusZero:
+                summary: 0 + 0 = 0
+                value:
+                  number1: 0
+                  number2: 0
+              twoPlusTwo:
+                summary: 2 + 2 = 4
+                value:
+                  number1: 2
+                  number2: 2
+      responses:
+        '200':
+          description: The sum of the two numbers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: number
+                    description: The result of adding the two numbers
+              examples:
+                zeroPlusZero:
+                  summary: 0 + 0 = 0
+                  value:
+                    result: 0
+                twoPlusTwo:
+                  summary: 2 + 2 = 4
+                  value:
+                    result: 4
+        '400':
+          description: Invalid parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message describing the invalid input
+              examples:
+                missingField:
+                  summary: Missing required field
+                  value:
+                    error: "number1 and number2 are required"
+                invalidType:
+                  summary: Invalid value type
+                  value:
+                    error: "number1 and number2 must be numbers"
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message for unexpected failures
+              examples:
+                serverError:
+                  summary: Unexpected error
+                  value:
+                    error: "unexpected error"

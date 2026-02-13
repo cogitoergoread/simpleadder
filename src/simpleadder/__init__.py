@@ -1,0 +1,1 @@
+"""Simple adder service package."""
