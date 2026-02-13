@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import logging
+import os
+
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -10,6 +13,21 @@ app = FastAPI(
     version="1.0.0",
     description="A simple web service that adds two numbers and returns the result.",
 )
+
+_DEBUG_LOG_BODY = os.getenv("SIMPLEADDER_DEBUG_BODY", "").lower() in {"1", "true", "yes"}
+
+if _DEBUG_LOG_BODY:
+    logging.basicConfig(level=logging.INFO)
+
+
+@app.middleware("http")
+async def log_request_body(request: Request, call_next):
+    if _DEBUG_LOG_BODY:
+        body = await request.body()
+        logging.info("Incoming request body: %s", body.decode("utf-8", "replace"))
+        request._body = body
+
+    return await call_next(request)
 
 
 class AddRequest(BaseModel):

@@ -22,6 +22,8 @@ IF description in [adder.yaml](adder.yaml) file.
    - http://localhost:5000/docs
 4. Test with curl:
    - `curl -s -X POST http://localhost:5000/add -H "Content-Type: application/json" -d '{"number1": 2, "number2": 2}'`
+5. Enable debug request body logging:
+   - `SIMPLEADDER_DEBUG_BODY=1 python -m simpleadder.main`
 
 # Makefile targets
 - `make all` runs `build`, `install`, then `run`
