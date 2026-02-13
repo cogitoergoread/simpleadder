@@ -23,4 +23,12 @@ IF description in [adder.yaml](adder.yaml) file.
 4. Test with curl:
    - `curl -s -X POST http://localhost:5000/add -H "Content-Type: application/json" -d '{"number1": 2, "number2": 2}'`
 
+# Makefile targets
+- `make all` runs `build`, `install`, then `run`
+- `make build` builds the package with `uv build`
+- `make install` installs the package in editable mode
+- `make run` starts the service via the `simpleadder` script
+- `make curltest` sends a test request to `/add`
+- `make browserdocs` opens the Swagger UI in a browser
+
 
