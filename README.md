@@ -24,6 +24,9 @@ IF description in [adder.yaml](adder.yaml) file.
    - `curl -s -X POST http://localhost:5000/add -H "Content-Type: application/json" -d '{"number1": 2, "number2": 2}'`
 5. Enable debug request body logging:
    - `SIMPLEADDER_DEBUG_BODY=1 python -m simpleadder.main`
+6. Select the operation with an environment variable:
+   - `SIMPLEADDER_OPERATION=add python -m simpleadder.main`
+   - `SIMPLEADDER_OPERATION=multiply python -m simpleadder.main`
 
 # Makefile targets
 - `make all` runs `build`, `install`, then `run`
