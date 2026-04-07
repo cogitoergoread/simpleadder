@@ -2,7 +2,7 @@
 
 ## Adder API
 
-[Simple Adder](../adder.yaml) egyszerű OpenAPI definíció.
+[Simple Adder](../adder.yaml) egyszerű OpenAPI leírás.
 
 ## Info
 
@@ -18,7 +18,7 @@ Ez gyakorlásnál nagyon hasznos, mert tudod, hova kell küldeni a kérést. Ha 
 
 ## Paths - 1 
 
-A Paths részben látod, mit tud az API. Itt egy útvonal van: /add, és erre POST kérést küldünk. A rövid összefoglaló szerint a művelet két számot ad össze.
+A Paths részben látod, mit tud az API. Egy végpont van: /add, és erre POST kérést küldünk. A rövid összefoglaló szerint a művelet két számot ad össze.
 
 A kérés törzsében két mező kötelező: number1 és number2. Mindkettő szám. Ha bármelyik hiányzik, vagy nem számot küldesz, nem kapsz helyes eredményt. A példák segítenek: 0 + 0 és 2 + 2. Ezek jó kezdő tesztesetek, mert egyszerűen ellenőrizhetők.
 

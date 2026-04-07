@@ -18,7 +18,7 @@ Tesztelőként ez jó indulópont a tesztesetek készítéséhez. Nem kell kódo
 
 A [Simple Adder](../adder.yaml) betöltéséhez nyisd meg a fájlt, majd másold ki a teljes tartalmát. Ezután nyisd meg a Swagger editort, és illeszd be a bal oldali szerkesztő részbe.
 
-Ha minden rendben van, a jobb oldali nézet azonnal mutatni fogja az API leírást. Itt ellenőrizd, hogy látható-e a /add útvonal, a két bemeneti mező (number1, number2), valamint a válaszok.
+Ha minden rendben van, a jobb oldali nézet azonnal mutatni fogja az API leírást. Itt ellenőrizd, hogy látható-e a /add végpont, a két bemeneti mező (number1, number2), valamint a válaszok.
 
 Ha hiba van a leírásban, az editor jelzi. Javítás után rögtön látni fogod a friss eredményt.
 
@@ -33,7 +33,7 @@ Utána jöhetnek a hibás próbák:
 - szöveget küldesz szám helyett,
 - üres kérést küldesz.
 
-Ilyenkor hibaválaszt kell kapnod, jól érthető üzenettel. Ha a válasz nem egyértelmű, azt érdemes feljegyezni.
+Ilyenkor hibaüzenetet kell kapnod, jól érthető szöveggel. Ha a válasz nem egyértelmű, azt érdemes feljegyezni.
 
 A felfedező tesztelés végén készíts rövid összegzést:
 - mi működött jól,

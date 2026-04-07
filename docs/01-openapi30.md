@@ -12,7 +12,7 @@ Az API-k leírásához gyakran használnak YAML-t, mert könnyen érthető és e
 
 ## OpenAPI 3.0
 
-Az OpenAPI egy szabvány, amely leírja, hogyan működik egy API. Segít tesztelőknek megérteni, mit tud csinálni az API és hogyan kell használni.
+Az OpenAPI egy szabvány, amely leírja, hogyan működik egy API. Tesztelőként könnyen megértheted, mit tud csinálni az API és hogyan kell használni.
 
 Az OpenAPI 3.0 verzió a legújabb szabvány. Jól működik a modern API-kkal. Az OpenAPI leírás tartalmazza azt, hogy:
 - Milyen végpontok érhetőek el (például /adder/calculate)
@@ -20,7 +20,7 @@ Az OpenAPI 3.0 verzió a legújabb szabvány. Jól működik a modern API-kkal. 
 - Milyen adatokat kapunk vissza (output)
 - Milyen hibák lehetségesek
 
-A tesztelőknek hasznos az OpenAPI, mert egyértelműen láthatják, mit kell tesztelni. Nem kell találgatni. Az API-k tulajdonosai ezzel csak egyszer írják le a rendszert, és mindenki ugyanazt az információt kapja.
+Tesztelőként hasznos az OpenAPI, mert egyértelműen láthatod, mit kell tesztelni. Nem kell találgatni. Az API-k tulajdonosai ezzel csak egyszer írják le a rendszert, és mindenki ugyanazt az információt kapja.
 
 OpenAPI-ban a végpontok, adattípusok és válaszok mindegyike részletesen dokumentálva van.
 
@@ -34,4 +34,4 @@ Az editor előnyei:
 - Tesztelhetőségi: közvetlenül az editorban tesztelheted az API-t
 - Hibakeresés: ha valami nem jó az OpenAPI leírásban, azonnal megjeleníti
 
-A Swagger editor segít abban, hogy a dokumentáció mindig aktuális és korrekta legyen. Tesztelőknek nagyon jó, mert világosan látható, milyen kéréseket és válaszokat vár az API.
+A Swagger editor segít abban, hogy a dokumentáció mindig aktuális és korrekta legyen. Tesztelőként nagyon jó, mert világosan láthatod, milyen kéréseket és válaszokat vár az API.
