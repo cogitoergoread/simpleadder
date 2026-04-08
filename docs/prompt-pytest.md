@@ -1,0 +1,1 @@
+Create Pytest for the contract #file:adder.yaml and use the running instance at http://0.0.0.0:5000 . Create positive tests for mnimum 5 pairs of good number1, number2 pairs and bad test cases, like missing parameters, empty parameters, bad input types.
