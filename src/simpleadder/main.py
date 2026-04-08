@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import os
+from typing import Literal
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
@@ -15,6 +16,11 @@ app = FastAPI(
 )
 
 _DEBUG_LOG_BODY = os.getenv("SIMPLEADDER_DEBUG_BODY", "").lower() in {"1", "true", "yes"}
+_OPERATION: Literal["add", "multiply"] = (
+    "multiply"
+    if os.getenv("SIMPLEADDER_OPERATION", "add").lower() == "multiply"
+    else "add"
+)
 
 if _DEBUG_LOG_BODY:
     logging.basicConfig(level=logging.INFO)
@@ -37,6 +43,13 @@ class AddRequest(BaseModel):
 
 class AddResponse(BaseModel):
     result: float
+
+
+def _calculate_result(number1: float, number2: float) -> float:
+    if _OPERATION == "multiply":
+        return number1 * number2
+
+    return number1 + number2
 
 
 def _build_validation_error_message(exc: RequestValidationError) -> str:
@@ -79,8 +92,7 @@ async def unhandled_exception_handler(_: Request, __: Exception) -> JSONResponse
 
 @app.post("/add", response_model=AddResponse)
 async def add_numbers(payload: AddRequest) -> AddResponse:
-    # Intentional discrepancy for tester bug discovery.
-    return AddResponse(result=payload.number1 * payload.number2)
+    return AddResponse(result=_calculate_result(payload.number1, payload.number2))
 
 
 def run() -> None:
